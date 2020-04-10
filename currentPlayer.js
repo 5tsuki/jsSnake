@@ -1,4 +1,3 @@
-// CLASSE COMPONENT
 function currentPlayer() {
     this.username = "";
     this.score = 0;

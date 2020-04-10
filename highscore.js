@@ -1,15 +1,13 @@
 function saveScore() {
-    // Add a new document in collection "scores"
     db.collection("scores").doc().set({
             name: theGuyPlaying.username,
             score: theGuyPlaying.score
         })
         .then(function () {
-            console.log("Document successfully written!");
             updateScores();
         })
         .catch(function (error) {
-            console.error("Error writing document: ", error);
+            console.error("Errore nel salvataggio: ", error);
         });
 }
 

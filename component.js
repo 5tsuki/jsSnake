@@ -1,4 +1,3 @@
-// CLASSE COMPONENT
 function component(width, height, color, x, y) {
     this.gamearea = myGameArea;
     this.width = width;
