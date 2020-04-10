@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake!</title>
+    <script src="https://kit.fontawesome.com/7740c1576a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/png" href="snake.png">
+  </head>
+
+  <body>
+    <div id="JustStarted">
+      <table id="GetData" class="tablePadding">
+        <tr>
+          <td>
+            <input type="text" name="playerUsername" id="username" placeholder="Username">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="okStartGame">Ok, inziamo a giocare!</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <table id="GameStarted" class="tablePadding">
+      <tr>
+        <td class="tableLeaderboard">
+          <table id="scoreboard" class="tablePadding"></table>
+        </td>
+        <td>
+          <div id="DisplayGame">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <center>
+            <button class="restartButton" onClick="window.location.reload();">Restart Game</button>
+          </center>
+        </td>
+      </tr>
+    </table>
+      <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+      <script defer src="init.js"></script>
+      <script defer src="highscore.js"></script>
+      <script src="currentPlayer.js"></script>
+      <script src="usernameInput.js"></script>
+      <script src="component.js"></script>
+      <script src="script.js"></script>
+  </body>
+</html>
