@@ -1,3 +1,4 @@
 # jsSnake
- Snake, written in JavaScript (School Project)
- the code is messy.
+Snake, written in JavaScript (School Project), made with Filippo Gelosini.
+
+The code is messy.
