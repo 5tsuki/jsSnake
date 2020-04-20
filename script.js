@@ -243,5 +243,4 @@ function endGame(){
     cntx.font = "75px Pixeboy";
     cntx.fillStyle = "white";
     cntx.fillText(("YOU SCORED: " + currentScore), w / 2, 350);
-    saveScore();
 }
