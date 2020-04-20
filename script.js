@@ -55,7 +55,7 @@ function checkDirection(){
 }
 
 function startGame() {
-    updateScores();
+    // updateScores();
     myGameArea.start();
     myGamePiece.push(new component(25, 25, "#ccc", 50, 0));
     myGamePiece.push(new component(25, 25, "white", 25, 0));
