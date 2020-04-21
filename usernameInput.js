@@ -11,8 +11,8 @@ $(document).ready(function () {
         } else {
             theGuyPlaying.username = playerUsername;
             startGame();
-            $("#JustStarted").slideUp(350);
-            $("#GameStarted").show();
+            $("#JustStarted").fadeOut(500);
+            $("#GameStarted").fadeIn(1000);
         }
     });
 });
