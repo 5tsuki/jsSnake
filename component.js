@@ -26,8 +26,6 @@ function component(width, height, color, x, y) {
                 this.y += this.speedY;
                 this.lastSpeedX = this.speedX;
                 this.lastSpeedY = this.speedY;
-                /*checkCollision();
-                checkIfClipped();*/
             }
         }
     }
