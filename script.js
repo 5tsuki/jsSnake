@@ -55,7 +55,7 @@ function checkDirection(){
 }
 
 function startGame() {
-    // updateScores();
+    updateScores();
     myGameArea.start();
     myGamePiece.push(new component(25, 25, "#ccc", 50, 0));
     myGamePiece.push(new component(25, 25, "white", 25, 0));
@@ -243,4 +243,9 @@ function endGame(){
     cntx.font = "75px Pixeboy";
     cntx.fillStyle = "white";
     cntx.fillText(("YOU SCORED: " + currentScore), w / 2, 350);
+    saveScore();
+}
+
+function restartGame(){
+    window.location.reload();
 }

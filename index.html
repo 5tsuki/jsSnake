@@ -28,12 +28,13 @@
 
     <table id="GameStarted" class="tablePadding">
       <tr>
+        <td class="usernameDisplay" colspan="2">
+          <p>Current player: <span style="color: lightskyblue" id="displayUsername"></span> &nbsp; <a style="color: lightseagreen" id="changeUsername">[Change Username]</a> </p>
+        </td>
+      </tr>
+      <tr>
         <td class="tableLeaderboard">
-          <table id="scoreboard" class="tablePadding">
-            <tr>
-              <td colspan="3">not available, need to fix</td>
-            </tr>
-          </table>
+          <table id="scoreboard" class="tablePadding"></table>
         </td>
         <td>
           <div id="DisplayGame">
@@ -43,9 +44,7 @@
       <tr>
         <td></td>
         <td>
-          <center>
-            <button class="restartButton" onClick="window.location.reload();">Restart Game</button>
-          </center>
+            <button class="restartButton" onClick="restartGame()">Restart Game</button>
         </td>
       </tr>
     </table>
@@ -54,10 +53,10 @@
       <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
       <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
       <script defer src="init.js"></script>
-      <!-- <script defer src="highscore.js"></script> -->
-      <script src="currentPlayer.js"></script>
-      <script src="usernameInput.js"></script>
-      <script src="component.js"></script>
-      <script src="script.js"></script>
+      <script defer src="highscore.js"></script>
+      <script defer src="currentPlayer.js"></script>
+      <script defer src="usernameInput.js"></script>
+      <script defer src="component.js"></script>
+      <script defer src="script.js"></script>
   </body>
 </html>
