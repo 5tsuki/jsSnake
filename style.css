@@ -21,7 +21,24 @@ body, html {
 
 canvas {
     background-color: #1f1f1f;
-    box-shadow: 10px 10px #141414;
+    box-shadow: 1px 0px 0px #141414,
+    0px 1px 0px #141414,
+    2px 1px 0px #141414,
+    1px 2px 0px #141414,
+    3px 2px 0px #141414,
+    2px 3px 0px #141414,
+    4px 3px 0px #141414,
+    3px 4px 0px #141414,
+    5px 4px 0px #141414,
+    4px 5px 0px #141414,
+    6px 5px 0px #141414,
+    5px 6px 0px #141414,
+    7px 6px 0px #141414,
+    6px 7px 0px #141414,
+    8px 7px 0px #141414,
+    7px 8px 0px #141414,
+    9px 8px 0px #141414,
+    8px 9px 0px #141414;
 }
 
 button {
@@ -29,7 +46,7 @@ button {
     outline: none;
     color: white;
     background-color: #009225;
-
+    cursor: pointer;
     box-shadow: 1px 0px 0px #01691b,
         0px 1px 0px #01691b,
         2px 1px 0px #01691b,
@@ -192,30 +209,36 @@ table.tablePadding tr td{
     padding-right: 0px !important;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
-    
+        
     font-size: x-large;
-
-    background-color: #1f1f1f;
+    
+    background-color: rgb(96, 96, 96);
     color: white;
-    box-shadow: 1px 0px 0px #141414,
-    0px 1px 0px #141414,
-    2px 1px 0px #141414,
-    1px 2px 0px #141414,
-    3px 2px 0px #141414,
-    2px 3px 0px #141414,
-    4px 3px 0px #141414,
-    3px 4px 0px #141414,
-    5px 4px 0px #141414,
-    4px 5px 0px #141414,
-    6px 5px 0px #141414,
-    5px 6px 0px #141414,
-    7px 6px 0px #141414,
-    6px 7px 0px #141414,
-    8px 7px 0px #141414,
-    7px 8px 0px #141414,
-    9px 8px 0px #141414,
-    8px 9px 0px #141414;
+    text-shadow: 1px 1px 3px black;
+    
+    box-shadow: 1px 0px 0px rgb(66, 66, 66),
+    0px 1px 0px rgb(66, 66, 66),
+    2px 1px 0px rgb(66, 66, 66),
+    1px 2px 0px rgb(66, 66, 66),
+    3px 2px 0px rgb(66, 66, 66),
+    2px 3px 0px rgb(66, 66, 66),
+    4px 3px 0px rgb(66, 66, 66),
+    3px 4px 0px rgb(66, 66, 66),
+    5px 4px 0px rgb(66, 66, 66),
+    4px 5px 0px rgb(66, 66, 66),
+    6px 5px 0px rgb(66, 66, 66),
+    5px 6px 0px rgb(66, 66, 66),
+    7px 6px 0px rgb(66, 66, 66),
+    6px 7px 0px rgb(66, 66, 66),
+    8px 7px 0px rgb(66, 66, 66),
+    7px 8px 0px rgb(66, 66, 66),
+    9px 8px 0px rgb(66, 66, 66),
+    8px 9px 0px rgb(66, 66, 66);
     transition: .5s;
+}
+
+#changeUsername {
+    cursor: pointer;
 }
 
 #scoreboard tr td:nth-child(1) {

@@ -1,4 +1,3 @@
-// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAYujxHd6YgvLmX4NhtBDbgDdQS3tNqgd8",
     authDomain: "snakehighscores.firebaseapp.com",
@@ -10,7 +9,6 @@ const firebaseConfig = {
     measurementId: "G-P2N748DPER"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();

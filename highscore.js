@@ -23,6 +23,6 @@ function updateScores() {
                 '</tr>'
             );
             i++;
-        })
-    })
+        });
+    });
 }
