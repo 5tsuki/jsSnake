@@ -175,6 +175,10 @@ input[type=text]:focus {
     align-items: center;
 }
 
+#musicController {
+    margin: 0 auto;
+}
+
 #scoreboard td{
     color: white;
     border-collapse: collapse;
@@ -202,39 +206,6 @@ input[type=text]:focus {
 
 table.tablePadding tr td{
     padding: 10px;
-}
-
-.usernameDisplay {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
-        
-    font-size: x-large;
-    
-    background-color: rgb(96, 96, 96);
-    color: white;
-    text-shadow: 1px 1px 3px black;
-    
-    box-shadow: 1px 0px 0px rgb(66, 66, 66),
-    0px 1px 0px rgb(66, 66, 66),
-    2px 1px 0px rgb(66, 66, 66),
-    1px 2px 0px rgb(66, 66, 66),
-    3px 2px 0px rgb(66, 66, 66),
-    2px 3px 0px rgb(66, 66, 66),
-    4px 3px 0px rgb(66, 66, 66),
-    3px 4px 0px rgb(66, 66, 66),
-    5px 4px 0px rgb(66, 66, 66),
-    4px 5px 0px rgb(66, 66, 66),
-    6px 5px 0px rgb(66, 66, 66),
-    5px 6px 0px rgb(66, 66, 66),
-    7px 6px 0px rgb(66, 66, 66),
-    6px 7px 0px rgb(66, 66, 66),
-    8px 7px 0px rgb(66, 66, 66),
-    7px 8px 0px rgb(66, 66, 66),
-    9px 8px 0px rgb(66, 66, 66),
-    8px 9px 0px rgb(66, 66, 66);
-    transition: .5s;
 }
 
 #changeUsername {
@@ -302,7 +273,7 @@ table.tablePadding tr td{
 }
 
 #scoreboard tr:nth-child(3) td {
-    background-color: lightslategray;
+    background-color: silver;
     color: white;
     box-shadow: 1px 0px 0px grey,
         0px 1px 0px grey,

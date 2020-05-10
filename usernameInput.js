@@ -1,4 +1,3 @@
-var playerUsername;
 var gameLoaded = false;
 
 $(document).ready(function () {
@@ -12,19 +11,17 @@ $(document).ready(function () {
         startGame();
         gameLoaded = true;
         $("#GameStarted").fadeIn(1000);
-        playerUsername = localStorage.getItem("lastPlayer");
-        theGuyPlaying.username = playerUsername;
+        theGuyPlaying.username = localStorage.getItem("lastPlayer");
     }
-    
+
     $("#okStartGame").click(function () {
-        playerUsername = $("#username").val().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-        if (playerUsername == "") {
+        theGuyPlaying.username = $("#username").val().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        if (theGuyPlaying.username == "") {
             alert("Username vuoto!");
-        } else if (playerUsername.length > 32) {
+        } else if (theGuyPlaying.username.length > 32) {
             alert("Username troppo lungo! (max. 32)");
         } else {
-            theGuyPlaying.username = playerUsername;
-            localStorage.setItem("lastPlayer", playerUsername);
+            localStorage.setItem("lastPlayer", theGuyPlaying.username);
             $("#displayUsername").text(localStorage.getItem("lastPlayer"));
             if (!gameLoaded) startGame();
             $("#JustStarted").fadeOut(500);

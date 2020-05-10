@@ -4,8 +4,7 @@ var h = 600;
 
 var time = 0;
 
-// Punteggio
-var currentScore = 0;
+var pauseInterval;
 
 var tmp;
 var newFruit;
@@ -15,6 +14,8 @@ var snakeDirection = "right";
 // Flags
 var gameStarted = false;
 var isAlive = true;
+var victoryFlag = false;
+var isPaused = false;
 
 // Giocatore e Area di gioco
 var myGamePiece = new Array();
@@ -39,11 +40,10 @@ var myGameArea = {
     }
 }
 
-function checkDirection(){
-    if ((myGamePiece[0].speedY == 25) && (myGamePiece[0].lastSpeedY == -25) ){
+function checkDirection() {
+    if ((myGamePiece[0].speedY == 25) && (myGamePiece[0].lastSpeedY == -25)) {
         myGamePiece[0].speedY = -25;
-    }
-    else if ((myGamePiece[0].speedY == -25) && (myGamePiece[0].lastSpeedY == 25)) {
+    } else if ((myGamePiece[0].speedY == -25) && (myGamePiece[0].lastSpeedY == 25)) {
         myGamePiece[0].speedY = 25;
     }
 
@@ -86,7 +86,7 @@ function randomPosition(dim) {
     while (tmp % 25 != 0) {
         tmp = Math.floor((Math.random() * dim));
     }
-    
+
     return tmp;
 }
 
@@ -94,7 +94,8 @@ function checkIfClipped() {
     if (myGamePiece[0].x < 0) {
         myGamePiece[0].x = 0;
         isAlive = false;
-    } else if (myGamePiece[0].x > myGameArea.canvas.width - myGamePiece[0].width) {
+    }
+    else if (myGamePiece[0].x > myGameArea.canvas.width - myGamePiece[0].width) {
         myGamePiece[0].x = myGameArea.canvas.width - myGamePiece[0].width;
         isAlive = false;
     }
@@ -102,7 +103,8 @@ function checkIfClipped() {
     if (myGamePiece[0].y < 0) {
         myGamePiece[0].y = 0;
         isAlive = false;
-    } else if (myGamePiece[0].y > myGameArea.canvas.height - myGamePiece[0].height) {
+    }
+    else if (myGamePiece[0].y > myGameArea.canvas.height - myGamePiece[0].height) {
         myGamePiece[0].y = myGameArea.canvas.height - myGamePiece[0].height;
         isAlive = false;
     }
@@ -110,142 +112,174 @@ function checkIfClipped() {
     if (myGamePiece.length > 4) {
         for (var i = 4; i < myGamePiece.length; i++) {
             if (myGamePiece[0].x == myGamePiece[i].x && myGamePiece[0].y == myGamePiece[i].y) {
-              isAlive = false;
-              break;
+                isAlive = false;
+                break;
             }
         }
     }
 }
 
-function changePoints(){
-    currentScore += 10;
-    theGuyPlaying.score = currentScore;
+function changePoints() {
+    theGuyPlaying.score += 10;
 }
 
 function checkCollision() {
     if (myGamePiece[0].x == newFruit.x && myGamePiece[0].y == newFruit.y) {
         tmp = myGamePiece[myGamePiece.length - 1];
         if (tmp.lastSpeedX == 25) {
-          myGamePiece.push(new component(tmp.width, tmp.height, "white", (tmp.x - 25), tmp.y));
-        }
-        else if (tmp.lastSpeedX == -25) {
-          myGamePiece.push(new component(tmp.width, tmp.height, "white", (tmp.x + 25), tmp.y));
-        }
-        else if (tmp.lastSpeedY == 25) {
-          myGamePiece.push(new component(tmp.width, tmp.height, "white", tmp.x, (tmp.y - 25)));
-        }
-        else if (tmp.lastSpeedY == -25) {
-          myGamePiece.push(new component(tmp.width, tmp.height, "white", tmp.x, (tmp.y + 25)));
+            myGamePiece.push(new component(tmp.width, tmp.height, "white", (tmp.x - 25), tmp.y));
+        } else if (tmp.lastSpeedX == -25) {
+            myGamePiece.push(new component(tmp.width, tmp.height, "white", (tmp.x + 25), tmp.y));
+        } else if (tmp.lastSpeedY == 25) {
+            myGamePiece.push(new component(tmp.width, tmp.height, "white", tmp.x, (tmp.y - 25)));
+        } else if (tmp.lastSpeedY == -25) {
+            myGamePiece.push(new component(tmp.width, tmp.height, "white", tmp.x, (tmp.y + 25)));
         }
         myGamePiece[myGamePiece.length - 1].update();
-        generateFruit();
         changePoints();
-        return true;
-    }
-    else {
-        return false;
+        checkVictory();
+        generateFruit();
     }
 }
 
 function updateGameArea() {
-    if (isAlive){
-        if (/*myGameArea.key && myGameArea.key == 37*/ snakeDirection != "right" && (myGameArea.key && myGameArea.key == 37)) {
-            myGamePiece[0].speedX = -myGamePiece[0].width;
-            myGamePiece[0].speedY = 0;
-            gameStarted = true;
-        } // Sinistra
+    if (!victoryFlag) {
+        if (isAlive) {
+            if (snakeDirection != "right" && (myGameArea.key && myGameArea.key == 37)) {
+                myGamePiece[0].speedX = -myGamePiece[0].width;
+                myGamePiece[0].speedY = 0;
+                gameStarted = true;
+            } // Sinistra
 
-        if (/*myGameArea.key && myGameArea.key == 39*/ snakeDirection != "left" && (myGameArea.key && myGameArea.key == 39)) {
-            myGamePiece[0].speedX = myGamePiece[0].width;
-            myGamePiece[0].speedY = 0;
-            gameStarted = true;
-        } // Destra
+            if (snakeDirection != "left" && (myGameArea.key && myGameArea.key == 39)) {
+                myGamePiece[0].speedX = myGamePiece[0].width;
+                myGamePiece[0].speedY = 0;
+                gameStarted = true;
+            } // Destra
 
-        if (/*myGameArea.key && myGameArea.key == 38*/ snakeDirection != "down" && (myGameArea.key && myGameArea.key == 38)) {
-            myGamePiece[0].speedY = -myGamePiece[0].height;
-            myGamePiece[0].speedX = 0;
-            gameStarted = true;
-        } // Su
+            if (snakeDirection != "down" && (myGameArea.key && myGameArea.key == 38)) {
+                myGamePiece[0].speedY = -myGamePiece[0].height;
+                myGamePiece[0].speedX = 0;
+                gameStarted = true;
+            } // Su
 
-        if (/*myGameArea.key && myGameArea.key == 40*/ snakeDirection != "up" && (myGameArea.key && myGameArea.key == 40)) {
-            myGamePiece[0].speedY = myGamePiece[0].height;
-            myGamePiece[0].speedX = 0;
-            gameStarted = true;
-        } // Giù
+            if (snakeDirection != "up" && (myGameArea.key && myGameArea.key == 40)) {
+                myGamePiece[0].speedY = myGamePiece[0].height;
+                myGamePiece[0].speedX = 0;
+                gameStarted = true;
+            } // Giù
 
-        time++;
+            time++;
 
-        if (time == 20) {
-            myGameArea.clear();
-            pointsUpdate();
+            if (time == 20) {
+                myGameArea.clear();
+                messageUpdate(theGuyPlaying.score);
 
-            switch (myGamePiece[0].speedX) {
-                case 25:
-                    snakeDirection = "right";
-                    break;
-                case -25:
-                    snakeDirection = "left";
-                    break;
-            }
-            switch (myGamePiece[0].speedY) {
-                case 25:
-                    snakeDirection = "down";
-                    break;
-                case -25:
-                    snakeDirection = "up";
-                    break;
-            }
-
-            for (var i = myGamePiece.length - 1; i >= 0; i--) {
-                if (i != 0) {
-                    myGamePiece[i].newPos(myGamePiece[i - 1]);
+                switch (myGamePiece[0].speedX) {
+                    case 25:
+                        snakeDirection = "right";
+                        break;
+                    case -25:
+                        snakeDirection = "left";
+                        break;
                 }
-                else {
-                    myGamePiece[i].newPos(null);
+                switch (myGamePiece[0].speedY) {
+                    case 25:
+                        snakeDirection = "down";
+                        break;
+                    case -25:
+                        snakeDirection = "up";
+                        break;
                 }
-                myGamePiece[i].update();
+
+                for (var i = myGamePiece.length - 1; i >= 0; i--) {
+                    if (i != 0) {
+                        myGamePiece[i].newPos(myGamePiece[i - 1]);
+                    } else {
+                        myGamePiece[i].newPos(null);
+                    }
+                    myGamePiece[i].update();
+                }
+                checkCollision();
+                checkIfClipped();
+                newFruit.update();
+                time = 0;
             }
-            checkCollision();
-            checkIfClipped();
-            newFruit.update();
-            time = 0;
+        }
+        else {
+            endGame("YOU LOST", "#ff0000", "#ffa500");
         }
     }
     else {
-        clearInterval(myGameArea.interval);
-        endGame();
+        endGame("YOU WON", "#00fa9a", "#009225");
     }
 }
 
-function pointsUpdate() {
+function pause() {
+    if (isAlive && !victoryFlag){
+      if (isPaused == false) {
+        clearInterval(myGameArea.interval);
+        isPaused = true;
+
+        myGameArea.clear();
+
+        messageUpdate("PAUSE");
+        newFruit.update();
+
+        for (var i = 0; i < myGamePiece.length; i++) {
+            myGamePiece[i].update();
+        }
+    }
+    else {
+        myGameArea.interval = setInterval(updateGameArea, 1);
+        isPaused = false;
+
+        myGameArea.clear();
+
+        messageUpdate("PAUSE");
+        newFruit.update();
+
+        for (var i = 0; i < myGamePiece.length; i++) {
+            myGamePiece[i].update();
+        }
+    }
+  }
+}
+
+function messageUpdate(message) {
     var canvas = document.getElementById("gameCanvas");
     var cntx = canvas.getContext("2d");
     cntx.textBaseline = "middle";
     cntx.textAlign = "center";
     cntx.font = "200px Pixeboy";
     cntx.fillStyle = 'rgba(255, 255, 255, .2)';
-    cntx.fillText(currentScore, w/2, 250);
+    cntx.fillText(message, w / 2, h / 2 - 50);
 }
 
-function endGame(){
+function checkVictory() {
+    if (theGuyPlaying.score == (((w / 25) * (h / 25)) * 10 - 30)) {
+        victoryFlag = true;
+    }
+}
+
+function endGame(message, frontTextColor, backTextColor) {
+    clearInterval(myGameArea.interval);
     myGameArea.clear();
     var canvas = document.getElementById("gameCanvas");
     var cntx = canvas.getContext("2d");
     cntx.font = "150px Pixeboy";
-    cntx.textBaseline = "bottom";
-    cntx.textAlign = "left";
-    cntx.fillStyle = "orange";
-    cntx.fillText("YOU LOST", 155, 325);
-    cntx.fillStyle = "red";
-    cntx.fillText("YOU LOST", 150, 320);
     cntx.textBaseline = "middle";
     cntx.textAlign = "center";
+    cntx.fillStyle = backTextColor;
+    cntx.fillText(message, w / 2 + 5, h / 2 - 75);
+    cntx.fillStyle = frontTextColor;
+    cntx.fillText(message, w / 2, h / 2 - 5 - 75);
     cntx.font = "75px Pixeboy";
     cntx.fillStyle = "white";
-    cntx.fillText(("YOU SCORED: " + currentScore), w / 2, 350);
+    cntx.fillText(("YOU SCORED: " + theGuyPlaying.score), w / 2, h / 2 + 75);
     saveScore();
 }
 
-function restartGame(){
+function restartGame() {
     window.location.reload();
 }
