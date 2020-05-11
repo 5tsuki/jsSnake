@@ -1,11 +1,14 @@
-var isPlaying = true;
+var isPlaying = true; // Controlla se la canzone è in riproduzione
+
+// QUESTO È UN EASTER EGG!!!!!!!!!!!
 var easterEgg = {
     cont: 0,
     flag: false
 };
 
-document.getElementById("musicControls").volume = 0.1;
+document.getElementById("musicControls").volume = 0.1; // Inizializza il volume della canzone a 10%
 
+// Controlli Volume
 function higherVolume() {
     try {
         document.getElementById("musicControls").volume += 0.1;
@@ -18,6 +21,7 @@ function lowerVolume() {
     } catch (e) {}
 }
 
+// Pausa / Riproduci
 function toggleMusic() {
     if (isPlaying) {
         document.getElementById("musicControls").pause();
@@ -31,6 +35,7 @@ function toggleMusic() {
     }
     isPlaying = !isPlaying;
 
+    // QUESTO È UN EASTER EGG!!!!!!!!!!!
     if (easterEgg.cont == 10 && !easterEgg.flag) {
         alert("You found the easter egg!");
         document.getElementById("musicControls").src = "sounds/easteregg.mp3"

@@ -1,5 +1,6 @@
 var Data = fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => Data = data.ip);
 
+// Funzione per salvare il punteggio all'interno del database
 function saveScore() {
     if (!cheatsFound()) {
         if (theGuyPlaying.score >= 10) {
@@ -17,24 +18,15 @@ function saveScore() {
                 });
         }
     } else {
-        clearInterval(myGameArea.interval);
-        myGameArea.clear();
-        var canvas = document.getElementById("gameCanvas");
-        var cntx = canvas.getContext("2d");
-        cntx.font = "150px Pixeboy";
-        cntx.textBaseline = "middle";
-        cntx.textAlign = "center";
-        cntx.fillStyle = "#7f7f7f";
-        cntx.fillText("YOU CHEATED", w / 2 + 5, h / 2 - 50);
-        cntx.fillStyle = "#ffffff";
-        cntx.fillText("YOU CHEATED", w / 2, h / 2 - 5 - 50);
-
+        // Output nel caso il giocatore avesse provato a cheattare
+        endGame("YOU CHEATED", "#ffffff", "#7f7f7f", false);
         console.error("bruh, cheater soyboy");
     }
 
 }
 
 function cheatsFound() {
+    // Controlla se il giocatore ha provato a cheattare
     if (!componentCheat()) {
         if (!snakeCheat()) {
             if (!pointsCheat()) {
@@ -47,6 +39,24 @@ function cheatsFound() {
     return true;
 }
 
+// Aggiorna i punteggi sulla Scoreboard
+function updateScores() {
+    let i = 1; // Posizione
+    document.getElementById('scoreboard').innerHTML = '<tr><td><i class="fas fa-trophy"></i></td><td>Name</td><td>Score</td></tr>';
+    db.collection("scores").orderBy("score", "desc").limit(20).get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+            $("#scoreboard").append('<tr>' +
+                '<td>' + i + '</td>' +
+                '<td>' + doc.data().name + '</td>' +
+                '<td>' + doc.data().score + '</td>' +
+                '</tr>'
+            );
+            i++;
+        });
+    });
+}
+
+// Vari controlli per i cheat
 function pointsCheat() {
     if (theGuyPlaying.score / 10 != myGamePiece.length - 3) {
         console.error("Points Cheat!");
@@ -87,20 +97,4 @@ function componentCheat() {
     }
 
     return flag;
-}
-
-function updateScores() {
-    i = 1;
-    document.getElementById('scoreboard').innerHTML = '<tr><td><i class="fas fa-trophy"></i></td><td>Name</td><td>Score</td></tr>';
-    db.collection("scores").orderBy("score", "desc").limit(20).get().then((snapshot) => {
-        snapshot.forEach((doc) => {
-            $("#scoreboard").append('<tr>' +
-                '<td>' + i + '</td>' +
-                '<td>' + doc.data().name + '</td>' +
-                '<td>' + doc.data().score + '</td>' +
-                '</tr>'
-            );
-            i++;
-        });
-    });
 }

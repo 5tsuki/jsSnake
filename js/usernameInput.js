@@ -1,5 +1,6 @@
 var gameLoaded = false;
 
+// Gestione UI
 $(document).ready(function () {
     $("#displayUsername").text(localStorage.getItem("lastPlayer"));
     $("#GameStarted").hide();
