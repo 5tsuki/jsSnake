@@ -1,0 +1,351 @@
+@font-face {
+    font-family: Pixeboy;
+    src: url("Pixeboy.ttf") format("truetype");
+}
+
+* {
+    font-family: Pixeboy;
+}
+
+body, html {
+    background-color: #0f0f0f;
+    color: #FFFFF0;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+canvas {
+    background-color: #1f1f1f;
+    box-shadow: 1px 0px 0px #141414,
+    0px 1px 0px #141414,
+    2px 1px 0px #141414,
+    1px 2px 0px #141414,
+    3px 2px 0px #141414,
+    2px 3px 0px #141414,
+    4px 3px 0px #141414,
+    3px 4px 0px #141414,
+    5px 4px 0px #141414,
+    4px 5px 0px #141414,
+    6px 5px 0px #141414,
+    5px 6px 0px #141414,
+    7px 6px 0px #141414,
+    6px 7px 0px #141414,
+    8px 7px 0px #141414,
+    7px 8px 0px #141414,
+    9px 8px 0px #141414,
+    8px 9px 0px #141414;
+}
+
+button {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #009225;
+    cursor: pointer;
+    box-shadow: 1px 0px 0px #01691b,
+        0px 1px 0px #01691b,
+        2px 1px 0px #01691b,
+        1px 2px 0px #01691b,
+        3px 2px 0px #01691b,
+        2px 3px 0px #01691b,
+        4px 3px 0px #01691b,
+        3px 4px 0px #01691b,
+        5px 4px 0px #01691b,
+        4px 5px 0px #01691b,
+        6px 5px 0px #01691b,
+        5px 6px 0px #01691b,
+        7px 6px 0px #01691b,
+        6px 7px 0px #01691b,
+        8px 7px 0px #01691b,
+        7px 8px 0px #01691b,
+        9px 8px 0px #01691b,
+        8px 9px 0px #01691b;
+    transform: translate(-2px, -2px);
+    padding: 10px 25px;
+    font-size: 20px;
+    transition: .5s;
+}
+
+button:hover {
+    background-color: #007e1f;
+    box-shadow: 1px 0px 0px #005a17,
+        0px 1px 0px #005a17,
+        2px 1px 0px #005a17,
+        1px 2px 0px #005a17,
+        3px 2px 0px #005a17,
+        2px 3px 0px #005a17,
+        4px 3px 0px #005a17,
+        3px 4px 0px #005a17,
+        5px 4px 0px #005a17,
+        4px 5px 0px #005a17,
+        6px 5px 0px #005a17,
+        5px 6px 0px #005a17,
+        7px 6px 0px #005a17,
+        6px 7px 0px #005a17,
+        8px 7px 0px #005a17,
+        7px 8px 0px #005a17,
+        9px 8px 0px #005a17,
+        8px 9px 0px #005a17;
+
+    transition: .3s;
+}
+
+button:active {
+    background-color: #007e1f;
+    box-shadow: 1px 0px 0px #005a17,
+        0px 1px 0px #005a17,
+        2px 1px 0px #005a17,
+        1px 2px 0px #005a17,
+        3px 2px 0px #005a17,
+        2px 3px 0px #005a17,
+        4px 3px 0px #005a17,
+        3px 4px 0px #005a17,
+        5px 4px 0px #005a17,
+        4px 5px 0px #005a17,
+        6px 5px 0px #005a17,
+        5px 6px 0px #005a17;
+    transform: translate(2px, 2px);
+    transition: .3s;
+}
+
+input[type=text] {
+    text-align: center;
+    outline: none;
+    background-color: white;
+    font-size: 20px;
+    padding: 15px 50px;
+    border: none;
+    box-shadow: 1px 0px 0px silver,
+        0px 1px 0px silver,
+        2px 1px 0px silver,
+        1px 2px 0px silver,
+        3px 2px 0px silver,
+        2px 3px 0px silver,
+        4px 3px 0px silver,
+        3px 4px 0px silver,
+        5px 4px 0px silver,
+        4px 5px 0px silver,
+        6px 5px 0px silver,
+        5px 6px 0px silver,
+        7px 6px 0px silver,
+        6px 7px 0px silver,
+        8px 7px 0px silver,
+        7px 8px 0px silver,
+        9px 8px 0px silver,
+        8px 9px 0px silver;
+    transition: .3s;
+}
+
+input[type=text]:focus {
+    transition: .5s;
+    box-shadow: 1px 0px 0px silver,
+    0px 1px 0px silver,
+    2px 1px 0px silver,
+    1px 2px 0px silver,
+    3px 2px 0px silver,
+    2px 3px 0px silver,
+    4px 3px 0px silver,
+    3px 4px 0px silver,
+    5px 4px 0px silver,
+    4px 5px 0px silver,
+    6px 5px 0px silver;
+    transition: .5s;
+}
+
+#JustStarted {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#GameStarted {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#musicController {
+    margin: 0 auto;
+}
+
+#scoreboard td{
+    color: white;
+    border-collapse: collapse;
+    background-color: #0061c2;
+    box-shadow: 1px 0px 0px #00478f,
+        0px 1px 0px #00478f,
+        2px 1px 0px #00478f,
+        1px 2px 0px #00478f,
+        3px 2px 0px #00478f,
+        2px 3px 0px #00478f,
+        4px 3px 0px #00478f,
+        3px 4px 0px #00478f,
+        5px 4px 0px #00478f,
+        4px 5px 0px #00478f,
+        6px 5px 0px #00478f,
+        5px 6px 0px #00478f,
+        7px 6px 0px #00478f,
+        6px 7px 0px #00478f,
+        8px 7px 0px #00478f,
+        7px 8px 0px #00478f,
+        9px 8px 0px #00478f,
+        8px 9px 0px #00478f;
+    transition: .5s;
+}
+
+table.tablePadding tr td{
+    padding: 10px;
+}
+
+#changeUsername {
+    cursor: pointer;
+}
+
+#scoreboard tr td:nth-child(1) {
+    text-align: center;
+}
+
+#scoreboard tr td:nth-child(2){
+    text-align: left;
+}
+
+#scoreboard tr td:nth-child(3) {
+    text-align: right;
+}
+
+#scoreboard tr:nth-child(1) td {
+    background-color: slateblue;
+    color: white;
+    box-shadow: 1px 0px 0px darkslateblue,
+        0px 1px 0px darkslateblue,
+        2px 1px 0px darkslateblue,
+        1px 2px 0px darkslateblue,
+        3px 2px 0px darkslateblue,
+        2px 3px 0px darkslateblue,
+        4px 3px 0px darkslateblue,
+        3px 4px 0px darkslateblue,
+        5px 4px 0px darkslateblue,
+        4px 5px 0px darkslateblue,
+        6px 5px 0px darkslateblue,
+        5px 6px 0px darkslateblue,
+        7px 6px 0px darkslateblue,
+        6px 7px 0px darkslateblue,
+        8px 7px 0px darkslateblue,
+        7px 8px 0px darkslateblue,
+        9px 8px 0px darkslateblue,
+        8px 9px 0px darkslateblue;
+    transition: .5s;
+}
+
+#scoreboard tr:nth-child(2) td {
+    background-color: gold;
+    color: white;
+    box-shadow: 1px 0px 0px goldenrod,
+    0px 1px 0px goldenrod,
+    2px 1px 0px goldenrod,
+    1px 2px 0px goldenrod,
+    3px 2px 0px goldenrod,
+    2px 3px 0px goldenrod,
+    4px 3px 0px goldenrod,
+    3px 4px 0px goldenrod,
+    5px 4px 0px goldenrod,
+    4px 5px 0px goldenrod,
+    6px 5px 0px goldenrod,
+    5px 6px 0px goldenrod,
+    7px 6px 0px goldenrod,
+    6px 7px 0px goldenrod,
+    8px 7px 0px goldenrod,
+    7px 8px 0px goldenrod,
+    9px 8px 0px goldenrod,
+    8px 9px 0px goldenrod;
+    transition: .5s;
+}
+
+#scoreboard tr:nth-child(3) td {
+    background-color: silver;
+    color: white;
+    box-shadow: 1px 0px 0px grey,
+        0px 1px 0px grey,
+        2px 1px 0px grey,
+        1px 2px 0px grey,
+        3px 2px 0px grey,
+        2px 3px 0px grey,
+        4px 3px 0px grey,
+        3px 4px 0px grey,
+        5px 4px 0px grey,
+        4px 5px 0px grey,
+        6px 5px 0px grey,
+        5px 6px 0px grey,
+        7px 6px 0px grey,
+        6px 7px 0px grey,
+        8px 7px 0px grey,
+        7px 8px 0px grey,
+        9px 8px 0px grey,
+        8px 9px 0px grey;
+    transition: .5s;
+}
+
+#scoreboard tr:nth-child(4) td {
+    background-color: #cd7f32;
+    color: white;
+    box-shadow: 1px 0px 0px #804a00,
+        0px 1px 0px #804a00,
+        2px 1px 0px #804a00,
+        1px 2px 0px #804a00,
+        3px 2px 0px #804a00,
+        2px 3px 0px #804a00,
+        4px 3px 0px #804a00,
+        3px 4px 0px #804a00,
+        5px 4px 0px #804a00,
+        4px 5px 0px #804a00,
+        6px 5px 0px #804a00,
+        5px 6px 0px #804a00,
+        7px 6px 0px #804a00,
+        6px 7px 0px #804a00,
+        8px 7px 0px #804a00,
+        7px 8px 0px #804a00,
+        9px 8px 0px #804a00,
+        8px 9px 0px #804a00;
+    transition: .5s;
+}
+
+#scoreboard tr td {
+    text-shadow: 1px 1px 3px black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#debug {
+    display: none;
+}
+
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0);
+}
