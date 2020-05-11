@@ -5,7 +5,7 @@ const h = 600;
 var time = 0; // Contatore per l'aggiornamento del canvas
 const refreshRate = 20; // FPS: 50
 
-var tmp;        // Oggetto temporaneo     
+var tmp;        // Oggetto temporaneo
 var newFruit;   // Frutto
 
 var snakeDirection = "right";   // Direzione del Serpente
@@ -74,7 +74,7 @@ function startGame() {
 
 function generateFruit() {
     // Genera il frutto
-    var clipped = true; 
+    var clipped = true;
 
     while (clipped == true) {
         clipped = false;
@@ -167,7 +167,7 @@ function playSound(srcUrl) {
 }
 
 function updateGameArea() {
-    // Main loop del gioco 
+    // Main loop del gioco
     if (!victoryFlag) {
         if (isAlive) {
             // Se il giocatore non ha vinto ed è ancora vivo
@@ -230,7 +230,7 @@ function updateGameArea() {
                     }
                     myGamePiece[i].update();
                 }
-                
+
                 checkCollision();
                 checkIfClipped();
                 newFruit.update();
