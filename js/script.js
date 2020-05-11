@@ -140,7 +140,7 @@ function checkCollision() {
             myGamePiece.push(new component(tmp.width, tmp.height, "white", tmp.x, (tmp.y + 25)));
         }
         myGamePiece[myGamePiece.length - 1].update();
-        playSound("../sounds/eating.wav");
+        playSound("sounds/eating.wav");
         changePoints();
         checkVictory();
         generateFruit();
@@ -217,7 +217,7 @@ function updateGameArea() {
                 time = 0;
             }
         } else {
-            playSound("../sounds/dead.wav");
+            playSound("sounds/dead.wav");
             endGame("YOU LOST", "#ff0000", "#ffa500");
         }
     } else {
