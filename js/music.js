@@ -6,19 +6,30 @@ var easterEgg = {
     flag: false
 };
 
-document.getElementById("musicControls").volume = 0.1; // Inizializza il volume della canzone a 10%
+if (localStorage.getItem("musicVolume") == null) {
+    document.getElementById("musicControls").volume = 0.05; // Inizializza il volume della canzone a 5%
+    saveVolume(); 
+} else {
+    document.getElementById("musicControls").volume = localStorage.getItem("musicVolume");
+}
 
 // Controlli Volume
 function higherVolume() {
     try {
-        document.getElementById("musicControls").volume += 0.1;
+        document.getElementById("musicControls").volume += 0.05;
+        saveVolume();
     } catch (e) {}
 }
 
 function lowerVolume() {
     try {
-        document.getElementById("musicControls").volume -= 0.1;
+        document.getElementById("musicControls").volume -= 0.05;
+        saveVolume();
     } catch (e) {}
+}
+
+function saveVolume(){
+    localStorage.setItem("musicVolume", document.getElementById("musicControls").volume);
 }
 
 // Pausa / Riproduci
