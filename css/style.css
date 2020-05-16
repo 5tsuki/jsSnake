@@ -69,6 +69,10 @@
     font-family: Pixeboy;
 }
 
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
+
 body,
 html {
     background-color: #0f0f0f;
