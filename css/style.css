@@ -3,11 +3,72 @@
     src: url("Pixeboy.ttf") format("truetype");
 }
 
+@media (orientation: portrait) {
+    #GameStarted {
+        display: inline !important;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    #arrowControls>button {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        background-color: #0061c2;
+        cursor: pointer;
+        box-shadow: 1px 0px 0px #00478f,
+            0px 1px 0px #00478f,
+            2px 1px 0px #00478f,
+            1px 2px 0px #00478f,
+            3px 2px 0px #00478f,
+            2px 3px 0px #00478f,
+            4px 3px 0px #00478f,
+            3px 4px 0px #00478f,
+            5px 4px 0px #00478f,
+            4px 5px 0px #00478f,
+            6px 5px 0px #00478f,
+            5px 6px 0px #00478f,
+            7px 6px 0px #00478f,
+            6px 7px 0px #00478f,
+            8px 7px 0px #00478f,
+            7px 8px 0px #00478f,
+            9px 8px 0px #00478f,
+            8px 9px 0px #00478f;
+    }
+
+    #arrowControls>button:active {
+        background-color: #0151a0;
+        box-shadow: 1px 0px 0px #003061,
+            0px 1px 0px #003061,
+            2px 1px 0px #003061,
+            1px 2px 0px #003061,
+            3px 2px 0px #003061,
+            2px 3px 0px #003061,
+            4px 3px 0px #003061,
+            3px 4px 0px #003061,
+            5px 4px 0px #003061,
+            4px 5px 0px #003061,
+            6px 5px 0px #003061,
+            5px 6px 0px #003061;
+        transform: translate(2px, 2px);
+        transition: .3s;
+    }
+}
+
+@media (orientation: landscape) {
+    #arrowControls {
+        display: none;
+    }
+}
+
 * {
     font-family: Pixeboy;
 }
 
-body, html {
+body,
+html {
     background-color: #0f0f0f;
     color: #FFFFF0;
     margin: 0;
@@ -22,23 +83,23 @@ body, html {
 canvas {
     background-color: #1f1f1f;
     box-shadow: 1px 0px 0px #141414,
-    0px 1px 0px #141414,
-    2px 1px 0px #141414,
-    1px 2px 0px #141414,
-    3px 2px 0px #141414,
-    2px 3px 0px #141414,
-    4px 3px 0px #141414,
-    3px 4px 0px #141414,
-    5px 4px 0px #141414,
-    4px 5px 0px #141414,
-    6px 5px 0px #141414,
-    5px 6px 0px #141414,
-    7px 6px 0px #141414,
-    6px 7px 0px #141414,
-    8px 7px 0px #141414,
-    7px 8px 0px #141414,
-    9px 8px 0px #141414,
-    8px 9px 0px #141414;
+        0px 1px 0px #141414,
+        2px 1px 0px #141414,
+        1px 2px 0px #141414,
+        3px 2px 0px #141414,
+        2px 3px 0px #141414,
+        4px 3px 0px #141414,
+        3px 4px 0px #141414,
+        5px 4px 0px #141414,
+        4px 5px 0px #141414,
+        6px 5px 0px #141414,
+        5px 6px 0px #141414,
+        7px 6px 0px #141414,
+        6px 7px 0px #141414,
+        8px 7px 0px #141414,
+        7px 8px 0px #141414,
+        9px 8px 0px #141414,
+        8px 9px 0px #141414;
 }
 
 button {
@@ -72,43 +133,43 @@ button {
 }
 
 button:hover {
-    background-color: #007e1f;
-    box-shadow: 1px 0px 0px #005a17,
-        0px 1px 0px #005a17,
-        2px 1px 0px #005a17,
-        1px 2px 0px #005a17,
-        3px 2px 0px #005a17,
-        2px 3px 0px #005a17,
-        4px 3px 0px #005a17,
-        3px 4px 0px #005a17,
-        5px 4px 0px #005a17,
-        4px 5px 0px #005a17,
-        6px 5px 0px #005a17,
-        5px 6px 0px #005a17,
-        7px 6px 0px #005a17,
-        6px 7px 0px #005a17,
-        8px 7px 0px #005a17,
-        7px 8px 0px #005a17,
-        9px 8px 0px #005a17,
-        8px 9px 0px #005a17;
+    background-color: #be0000;
+    box-shadow: 1px 0px 0px #920000,
+        0px 1px 0px #920000,
+        2px 1px 0px #920000,
+        1px 2px 0px #920000,
+        3px 2px 0px #920000,
+        2px 3px 0px #920000,
+        4px 3px 0px #920000,
+        3px 4px 0px #920000,
+        5px 4px 0px #920000,
+        4px 5px 0px #920000,
+        6px 5px 0px #920000,
+        5px 6px 0px #920000,
+        7px 6px 0px #920000,
+        6px 7px 0px #920000,
+        8px 7px 0px #920000,
+        7px 8px 0px #920000,
+        9px 8px 0px #920000,
+        8px 9px 0px #920000;
 
     transition: .3s;
 }
 
 button:active {
-    background-color: #007e1f;
-    box-shadow: 1px 0px 0px #005a17,
-        0px 1px 0px #005a17,
-        2px 1px 0px #005a17,
-        1px 2px 0px #005a17,
-        3px 2px 0px #005a17,
-        2px 3px 0px #005a17,
-        4px 3px 0px #005a17,
-        3px 4px 0px #005a17,
-        5px 4px 0px #005a17,
-        4px 5px 0px #005a17,
-        6px 5px 0px #005a17,
-        5px 6px 0px #005a17;
+    background-color: #be0000;
+    box-shadow: 1px 0px 0px #920000,
+        0px 1px 0px #920000,
+        2px 1px 0px #920000,
+        1px 2px 0px #920000,
+        3px 2px 0px #920000,
+        2px 3px 0px #920000,
+        4px 3px 0px #920000,
+        3px 4px 0px #920000,
+        5px 4px 0px #920000,
+        4px 5px 0px #920000,
+        6px 5px 0px #920000,
+        5px 6px 0px #920000;
     transform: translate(2px, 2px);
     transition: .3s;
 }
@@ -144,16 +205,16 @@ input[type=text] {
 input[type=text]:focus {
     transition: .5s;
     box-shadow: 1px 0px 0px silver,
-    0px 1px 0px silver,
-    2px 1px 0px silver,
-    1px 2px 0px silver,
-    3px 2px 0px silver,
-    2px 3px 0px silver,
-    4px 3px 0px silver,
-    3px 4px 0px silver,
-    5px 4px 0px silver,
-    4px 5px 0px silver,
-    6px 5px 0px silver;
+        0px 1px 0px silver,
+        2px 1px 0px silver,
+        1px 2px 0px silver,
+        3px 2px 0px silver,
+        2px 3px 0px silver,
+        4px 3px 0px silver,
+        3px 4px 0px silver,
+        5px 4px 0px silver,
+        4px 5px 0px silver,
+        6px 5px 0px silver;
     transition: .5s;
 }
 
@@ -166,6 +227,10 @@ input[type=text]:focus {
     align-items: center;
 }
 
+#JustStarted tr td{
+    padding: 10px;
+}
+
 #GameStarted {
     height: 100vh;
     width: 100vw;
@@ -175,14 +240,18 @@ input[type=text]:focus {
     align-items: center;
 }
 
-#musicController {
+.controlsTable {
     margin: 0 auto;
 }
 
-#scoreboard td{
+.controlsTable tr td {
+    padding: 5px;
+}
+
+#scoreboard td {
     color: white;
     border-collapse: collapse;
-    background-color: #0061c2;
+    background-color: #0061c2 !important;
     box-shadow: 1px 0px 0px #00478f,
         0px 1px 0px #00478f,
         2px 1px 0px #00478f,
@@ -204,8 +273,11 @@ input[type=text]:focus {
     transition: .5s;
 }
 
-table.tablePadding tr td{
-    padding: 10px;
+.tablePadding {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-top: 15px;
 }
 
 #changeUsername {
@@ -216,7 +288,7 @@ table.tablePadding tr td{
     text-align: center;
 }
 
-#scoreboard tr td:nth-child(2){
+#scoreboard tr td:nth-child(2) {
     text-align: left;
 }
 
@@ -225,7 +297,7 @@ table.tablePadding tr td{
 }
 
 #scoreboard tr:nth-child(1) td {
-    background-color: slateblue;
+    background-color: slateblue !important;
     color: white;
     box-shadow: 1px 0px 0px darkslateblue,
         0px 1px 0px darkslateblue,
@@ -249,31 +321,31 @@ table.tablePadding tr td{
 }
 
 #scoreboard tr:nth-child(2) td {
-    background-color: gold;
+    background-color: gold !important;
     color: white;
     box-shadow: 1px 0px 0px goldenrod,
-    0px 1px 0px goldenrod,
-    2px 1px 0px goldenrod,
-    1px 2px 0px goldenrod,
-    3px 2px 0px goldenrod,
-    2px 3px 0px goldenrod,
-    4px 3px 0px goldenrod,
-    3px 4px 0px goldenrod,
-    5px 4px 0px goldenrod,
-    4px 5px 0px goldenrod,
-    6px 5px 0px goldenrod,
-    5px 6px 0px goldenrod,
-    7px 6px 0px goldenrod,
-    6px 7px 0px goldenrod,
-    8px 7px 0px goldenrod,
-    7px 8px 0px goldenrod,
-    9px 8px 0px goldenrod,
-    8px 9px 0px goldenrod;
+        0px 1px 0px goldenrod,
+        2px 1px 0px goldenrod,
+        1px 2px 0px goldenrod,
+        3px 2px 0px goldenrod,
+        2px 3px 0px goldenrod,
+        4px 3px 0px goldenrod,
+        3px 4px 0px goldenrod,
+        5px 4px 0px goldenrod,
+        4px 5px 0px goldenrod,
+        6px 5px 0px goldenrod,
+        5px 6px 0px goldenrod,
+        7px 6px 0px goldenrod,
+        6px 7px 0px goldenrod,
+        8px 7px 0px goldenrod,
+        7px 8px 0px goldenrod,
+        9px 8px 0px goldenrod,
+        8px 9px 0px goldenrod;
     transition: .5s;
 }
 
 #scoreboard tr:nth-child(3) td {
-    background-color: silver;
+    background-color: silver !important;
     color: white;
     box-shadow: 1px 0px 0px grey,
         0px 1px 0px grey,
@@ -297,7 +369,7 @@ table.tablePadding tr td{
 }
 
 #scoreboard tr:nth-child(4) td {
-    background-color: #cd7f32;
+    background-color: #cd7f32 !important;
     color: white;
     box-shadow: 1px 0px 0px #804a00,
         0px 1px 0px #804a00,

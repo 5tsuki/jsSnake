@@ -27,21 +27,38 @@
     </table>
   </div>
 
+  <div id="GameStarted">
+    <div id="VideoGame">
+      <p style="font-size: large;">Current player: <span style="color: lightslategrey" id="displayUsername"></span>
+        <br>
+        <a style="color: rebeccapurple" id="changeUsername">[Change Username]</a> </p>
+      <div id="DisplayGame">
+      </div>
+      <div id="arrowControls">
+        <!-- Controlli per il cellulare -->
+        <button onClick="moveUp()"><i class="fas fa-arrow-up"></i></button>
+        <br>
+        <button onClick="moveLeft()"><i class="fas fa-arrow-left"></i></button>
+        <button onClick="moveDown()"><i class="fas fa-arrow-down"></i></button>
+        <button onClick="moveRight()"><i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div>
+        <table class="tablePadding controlsTable">
+          <tr>
+            <td>
+              <button onClick="pause()">Pause Game</button>
+            </td>
+            <td>
+              <button onClick="restartGame()">Restart Game</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-  <table id="GameStarted" class="tablePadding">
-    <tr>
-      <td class="tableLeaderboard">
-        <table id="scoreboard" class="tablePadding"></table>
-      </td>
-      <td>
-        <p style="font-size: large;">Current player: <span style="color: lightslategrey" id="displayUsername"></span>
-          <br> <a style="color: rebeccapurple" id="changeUsername">[Change Username]</a> </p>
-          <div id="DisplayGame">
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><table id="musicController">
+    <div id="LeaderBoard">
+      <div class="tablePadding">
+        <table id="musicController" class="controlsTable">
           <tr>
             <td>
               <button onclick="lowerVolume()"><i class="fas fa-volume-down"></i></button>
@@ -54,15 +71,15 @@
             </td>
           </tr>
         </table>
-      </td>
-      <td>
-        <button class="restartButton" onClick="pause()">Pause Game</button>
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
-        <button class="restartButton" onClick="restartGame()">Restart Game</button>
-      </td>
-    </tr>
-  </table>
+      </div>
+      <center>
+        <div class="tableLeaderboard">
+          <table id="scoreboard" class="tablePadding"></table>
+        </div>
+      </center>
+    </div>
+  </div>
+
   <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>

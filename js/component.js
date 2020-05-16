@@ -1,5 +1,4 @@
 // Classe per gli oggetti del gioco
-
 function component(width, height, color, x, y) {
     this.gamearea = myGameArea;
     this.width = width;

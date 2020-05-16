@@ -1,13 +1,10 @@
-var Data = fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => Data = data.ip);
-
 // Funzione per salvare il punteggio all'interno del database
 function saveScore() {
     if (!cheatsFound()) {
         if (theGuyPlaying.score >= 10) {
             db.collection("scores").doc().set({
                     name: theGuyPlaying.username,
-                    score: theGuyPlaying.score,
-                    data: Data
+                    score: theGuyPlaying.score
                 })
                 .then(function () {
                     console.log("Score submitted!");
