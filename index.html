@@ -39,16 +39,16 @@
         <button onClick="moveUp()"><i class="fas fa-arrow-up"></i></button>
         <br>
         <button onClick="moveLeft()"><i class="fas fa-arrow-left"></i></button>
-        <button onClick="moveDown()"><i class="fas fa-arrow-down"></i></button>
+        <button onClick="pause()"> <i class="fas fa-circle"></i></button>
         <button onClick="moveRight()"><i class="fas fa-arrow-right"></i></button>
+        <br>
+        <button onClick="moveDown()"><i class="fas fa-arrow-down"></i></button>
       </div>
       <div>
         <table class="tablePadding controlsTable">
           <tr>
             <td>
-              <button onClick="pause()">Pause Game</button>
-            </td>
-            <td>
+              <button id="pauseButton" onClick="pause()">Pause Game</button>
               <button onClick="restartGame()">Restart Game</button>
             </td>
           </tr>

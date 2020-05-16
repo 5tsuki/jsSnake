@@ -12,10 +12,8 @@
     }
 
     #arrowControls>button {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        margin: 7px;
+        padding: 25px;
         background-color: #0061c2;
         cursor: pointer;
         box-shadow: 1px 0px 0px #00478f,
@@ -54,6 +52,10 @@
             5px 6px 0px #003061;
         transform: translate(2px, 2px);
         transition: .3s;
+    }
+
+    #pauseButton {
+        display: none;
     }
 }
 
@@ -127,6 +129,7 @@ button {
         9px 8px 0px #01691b,
         8px 9px 0px #01691b;
     transform: translate(-2px, -2px);
+    margin: 5px;
     padding: 10px 25px;
     font-size: 20px;
     transition: .5s;
